@@ -17,8 +17,10 @@ alias j="z"
 # Powerline
 if (( $+commands[powerline-daemon] )); then
   powerline-daemon -q
+fi
 if [[ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
   source /usr/share/powerline/bindings/zsh/powerline.zsh
+fi
 
 # Pywal
 if [[ -f $HOME/.cache/wal/sequences ]]; then

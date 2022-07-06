@@ -12,7 +12,7 @@ if [ -n "${ZSH_VERSION-}" ]; then
 
     
   # Paths need to be exported here to use with sxhkd
-  
+
   if [ -n "${XDG_SESSION_DESKTOP+1}" ]; then
     export PATH="$PATH:$HOME/scripts:$HOME/scripts/dmenu:$HOME/scripts/crontab:$HOME/.local/bin"
     # Export GUI env
