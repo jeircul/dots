@@ -1,10 +1,20 @@
-dots() { cd; /usr/bin/git --git-dir="$HOME"/.cfg/ --work-tree="$HOME" status ; cd - ;}
+dots() {
+  cd
+  /usr/bin/git --git-dir="$HOME"/.cfg/ --work-tree="$HOME" status
+  cd -
+}
+
 alias dot="dotbare" dotl="dot pull" dotp="dot push" \
   dotpv="dot push -v" dotd="dot diff" dotc="dot commit" \
   dota="dot add -v " dotaa="dota -v -u "
 
-pdots() { cd; /usr/bin/git --git-dir="$HOME"/.dots/ --work-tree="$HOME" status ; cd - ;}
-alias pdot='DOTBARE_DIR="$HOME/.dots" DOTBARE_TREE="$HOME" DOTBARE_BACKUP="$HOME/.local/share/dotbare/dots" dotbare'
+pdots() {
+  cd
+  /usr/bin/git --git-dir="$HOME"/.pcfg/ --work-tree="$HOME" status
+  cd -
+}
+
+alias pdot='DOTBARE_DIR="$HOME/.pcfg" DOTBARE_TREE="$HOME" DOTBARE_BACKUP="$HOME/.local/share/dotbare/pcfg" dotbare'
 alias pdotl="pdot pull" pdotp="pdot push" \
   pdotpv="pdot push -v" pdotd="pdot diff" pdotc="pdot commit" \
   pdota="pdot add -v " pdotaa="pdota -v -u "
