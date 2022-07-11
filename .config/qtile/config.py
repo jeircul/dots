@@ -1,8 +1,15 @@
-from libqtile import bar, layout, widget
+import os
+import subprocess
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from floating_window_snapping import move_snap_window
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~')
+    subprocess.Popen([home + '/.config/qtile/autostart.sh'])
 
 mod = "mod4"
 shift = "shift"
