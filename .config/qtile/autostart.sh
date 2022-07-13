@@ -22,4 +22,3 @@ _run mullvad-vpn &
 _run unclutter &
 _run clipmenud &
 _run birdtray &
-_run volumeicon &
