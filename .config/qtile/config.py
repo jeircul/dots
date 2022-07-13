@@ -97,7 +97,6 @@ screens = [
                 ),
                 widget.CryptoTicker(),
                 widget.KeyboardLayout(),
-                widget.Wlan(),
                 widget.Systray(),
                 widget.Volume(emoji=True),
                 widget.Clock(format="%d/%m %a %H:%M"),
