@@ -6,15 +6,25 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from floating_window_snapping import move_snap_window
 
+home = os.path.expanduser('~')
+terminal = guess_terminal()
+mod = "mod4"
+browser = "qutebrowser"
+
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~')
     subprocess.Popen([home + '/.config/qtile/autostart.sh'])
 
-mod = "mod4"
-shift = "shift"
-terminal = guess_terminal()
-browser = "qutebrowser"
+colors = []
+cache = home + '/.cache/wal/colors'
+def load_colors(cache):
+    with open(cache, 'r') as file:
+        for i in range(8):
+            colors.append(file.readline().strip())
+    colors.append('#ffffff')
+    lazy.reload()
+load_colors(cache)
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -22,8 +32,9 @@ keys = [
     Key([mod], "t", lazy.screen.next_group()),
     Key([mod], "m", lazy.layout.maximize()),
     Key([mod], "b", lazy.spawn(browser), desc="Launch terminal"),
+    Key([mod], "BackSpace", lazy.spawn(home + "/scripts/dmenu/powermenu"), desc="Launch powermenu"),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
-    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc='Toggle floating'), 
+    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc='Toggle floating'),
     Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Launch terminal"),
     Key([mod, "shift"], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
@@ -52,7 +63,6 @@ groups = [Group(i) for i in "123456"]
 for i in groups:
     keys.extend(
         [
-            # mod1 + letter of group = switch to group
             Key(
                 [mod],
                 i.name,
@@ -68,8 +78,14 @@ for i in groups:
         ]
     )
 
+layout_theme = {
+    "border_focus": colors[1],
+    "border_normal": colors[0],
+    "font": "Hack Nerd Font Mono",
+}
+
 layouts = [
-    layout.MonadTall(),
+    layout.MonadTall(**layout_theme),
     layout.Max(),
     # layout.Bsp(),
 ]
@@ -78,6 +94,7 @@ widget_defaults = dict(
     font="Hack Nerd Font Mono",
     fontsize=12,
     padding=3,
+    background=colors[0]
 )
 extension_defaults = widget_defaults.copy()
 
