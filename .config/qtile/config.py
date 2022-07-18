@@ -51,6 +51,7 @@ keys = [
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Launch terminal"),
     Key(["mod1"], "Tab", lazy.screen.toggle_group(), desc="Toggle between layouts"),
     Key([mod, "shift"], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
@@ -58,20 +59,27 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 ]
 
-groups = [Group(i) for i in "123456"]
+# groups = [Group(i) for i in "123456"]
+
+groups = [
+    Group("1", label="main", matches=[Match(wm_class="firefox")]),
+    Group("2", label="dev", matches=[Match(wm_class="code")]),
+    Group("3", label="chat"),
+    Group("4", label="mail"),
+    Group("5", label="other"),
+    Group("6", label="stuff"),
+]
 
 for i in groups:
     keys.extend(
         [
             Key(
-                [mod],
-                i.name,
+                [mod], i.name,
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
             Key(
-                [mod, "shift"],
-                i.name,
+                [mod, "shift"], i.name,
                 lazy.window.togroup(i.name, switch_group=True),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
@@ -94,7 +102,8 @@ widget_defaults = dict(
     font="Hack Nerd Font Mono",
     fontsize=12,
     padding=3,
-    background=colors[0]
+    background=colors[0],
+    foreground=colors[4],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -102,19 +111,27 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
+                widget.CurrentLayoutIcon(),
+                widget.GroupBox(
+                    active = colors[2],
+                    inactive = "#555555",
+                    highlight_method = "line",
+                    highlight_color = colors[0],
+                    this_screen_border = colors[6],
+                    this_current_screen_border = colors[4],
+                    other_screen_border = colors[6],
+                    other_current_screen_border = colors[4],
                 ),
+                widget.WindowName(),
+                # widget.Chord(
+                #     chords_colors={
+                #         "launch": ("#ff0000", "#ffffff"),
+                #     },
+                #     name_transform=lambda name: name.upper(),
+                # ),
                 widget.CryptoTicker(),
-                widget.KeyboardLayout(),
                 widget.Systray(),
+                widget.KeyboardLayout(),
                 widget.Volume(emoji=True),
                 widget.Clock(format="%d/%m %a %H:%M"),
                 widget.QuickExit(),
@@ -150,7 +167,6 @@ floating_layout = layout.Floating(
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
-        Match(title="pinentry"),  # GPG key password entry
     ]
 )
 auto_fullscreen = True
@@ -159,7 +175,7 @@ reconfigure_screens = True
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
-auto_minimize = True
+auto_minimize = False
 
 # When using the Wayland backend, this can be used to configure input devices.
 wl_input_rules = None
