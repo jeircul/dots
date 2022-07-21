@@ -6,7 +6,7 @@ configuration {
   display-window: "  ";
   drun-display-format: "{icon} {name}";
   /* font: "JetBrainsMono Nerd Font Medium 10"; */
-  modi: "window,run,drun";
+  modi: "window,run,drun,combi";
   show-icons: true;
   timeout {
       action: "kb-cancel";
