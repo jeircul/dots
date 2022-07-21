@@ -108,8 +108,6 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(),
-    Screen(),
     Screen(
         top=bar.Bar(
             [
@@ -125,12 +123,6 @@ screens = [
                     other_current_screen_border = colors[3],
                 ),
                 widget.WindowName(),
-                # widget.Chord(
-                #     chords_colors={
-                #         "launch": ("#ff0000", "#ffffff"),
-                #     },
-                #     name_transform=lambda name: name.upper(),
-                # ),
                 widget.CryptoTicker(),
                 widget.Systray(),
                 widget.KeyboardLayout(),
@@ -139,10 +131,10 @@ screens = [
                 widget.QuickExit(),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
+    Screen(),
+    Screen(),
 ]
 
 # Drag floating layouts.
