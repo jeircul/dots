@@ -32,6 +32,7 @@ keys = [
     Key([mod], "t", lazy.screen.next_group()),
     Key([mod], "m", lazy.layout.maximize()),
     Key([mod], "b", lazy.spawn(browser), desc="Launch terminal"),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Launch Flameshot"),
     Key([mod], "BackSpace", lazy.spawn(home + "/scripts/dmenu/powermenu"), desc="Launch powermenu"),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc='Toggle floating'),
