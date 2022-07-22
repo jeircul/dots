@@ -3,6 +3,7 @@ configuration {
   yoffset: 26;
   display-run: " ";
   display-drun: "  ";
+  display-combi: "  ";
   display-window: "  ";
   drun-display-format: "{icon} {name}";
   /* font: "JetBrainsMono Nerd Font Medium 10"; */
