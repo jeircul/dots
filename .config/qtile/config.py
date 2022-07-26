@@ -134,7 +134,25 @@ screens = [
             24,
         ),
     ),
-    Screen(),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.CurrentLayoutIcon(),
+                widget.GroupBox(
+                    active = colors[2],
+                    inactive = "#555555",
+                    highlight_method = "line",
+                    highlight_color = colors[0],
+                    this_screen_border = colors[4],
+                    this_current_screen_border = colors[3],
+                    other_screen_border = colors[4],
+                    other_current_screen_border = colors[3],
+                ),
+                widget.WindowName(),
+            ],
+            24,
+        ),
+    ),
     Screen(),
 ]
 
