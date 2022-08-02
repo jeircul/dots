@@ -58,6 +58,7 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
 ]
 
 # groups = [Group(i) for i in "123456"]
@@ -126,7 +127,9 @@ screens = [
                 widget.WindowName(),
                 widget.CryptoTicker(),
                 widget.Systray(),
-                widget.KeyboardLayout(),
+                widget.KeyboardLayout(
+                    configured_keyboards = ['us', 'no'],
+                ),
                 widget.Volume(emoji=True),
                 widget.Clock(format="%d/%m %a %H:%M"),
                 widget.QuickExit(),
