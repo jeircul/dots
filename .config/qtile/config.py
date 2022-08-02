@@ -64,8 +64,9 @@ keys = [
 # groups = [Group(i) for i in "123456"]
 
 groups = [
-    Group("1", label="www", matches=[Match(wm_class="firefox")]),
-    Group("2", label="dev", matches=[Match(wm_class="code")]),
+    # Group("1", label="www", matches=[Match(wm_class="firefox")]),
+    Group("1", label="www"),
+    Group("2", label="dev"),
     Group("3", label="chat"),
     Group("4", label="mail"),
     Group("5", label="other"),
