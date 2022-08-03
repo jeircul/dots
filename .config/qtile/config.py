@@ -126,14 +126,22 @@ screens = [
                     other_current_screen_border = colors[5],
                 ),
                 widget.WindowName(),
-                widget.CryptoTicker(),
+                widget.CryptoTicker(
+                    foreground=colors[1]
+                ),
                 widget.Systray(),
                 widget.KeyboardLayout(
                     configured_keyboards = ['us', 'no'],
+                    foreground = colors[5]
                 ),
                 widget.Volume(emoji=True),
-                widget.Clock(format="%d/%m %a %H:%M"),
-                widget.QuickExit(),
+                widget.Clock(
+                    format="%d/%m %a %H:%M",
+                    foreground=colors[2]
+                ),
+                widget.QuickExit(
+                    foreground=colors[1]
+                ),
             ],
             24,
         ),
