@@ -140,7 +140,9 @@ screens = [
                     foreground=colors[2]
                 ),
                 widget.QuickExit(
-                    foreground=colors[1]
+                    foreground=colors[1],
+                    default_text='[]',
+                    countdown_format='[{}]',
                 ),
             ],
             24,
