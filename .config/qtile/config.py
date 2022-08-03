@@ -90,9 +90,9 @@ for i in groups:
     )
 
 layout_theme = {
-    "border_focus": colors[1],
+    "border_focus": colors[4],
     "border_normal": colors[0],
-    "font": "Hack Nerd Font Mono",
+    "font": "Fira Code",
 }
 
 layouts = [
@@ -103,10 +103,10 @@ layouts = [
 
 widget_defaults = dict(
     font="Fira Code",
-    fontsize=13,
+    fontsize=14,
     padding=3,
     background=colors[0],
-    foreground=colors[3],
+    foreground=colors[7],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -118,32 +118,24 @@ screens = [
                 widget.GroupBox(
                     active = colors[4],
                     inactive = colors[7],
-                    highlight_method = "line",
-                    highlight_color = colors[0],
+                    highlight_method = "block",
+                    block_highlight_text_color = colors[0],
+                    urgent_border=colors[1],
+                    urgent_text=colors[1],
+                    # highlight_color = colors[0],
                     this_screen_border = colors[4],
                     this_current_screen_border = colors[3],
                     other_screen_border = colors[4],
                     other_current_screen_border = colors[5],
                 ),
                 widget.WindowName(),
-                widget.CryptoTicker(
-                    foreground=colors[1]
-                ),
+                widget.CryptoTicker(),
                 widget.Systray(),
-                widget.KeyboardLayout(
-                    configured_keyboards = ['us', 'no'],
-                    foreground = colors[5]
+                widget.KeyboardLayout(configured_keyboards=['us', 'no'],
                 ),
                 widget.Volume(emoji=True),
-                widget.Clock(
-                    format="%d/%m %a %H:%M",
-                    foreground=colors[2]
-                ),
-                widget.QuickExit(
-                    foreground=colors[1],
-                    default_text='[]',
-                    countdown_format='[{}]',
-                ),
+                widget.Clock(format="%d/%m %a %H:%M"),
+                widget.QuickExit(foreground=colors[1]),
             ],
             24,
         ),
