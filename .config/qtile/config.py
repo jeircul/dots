@@ -102,11 +102,11 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Hack Nerd Font Mono",
-    fontsize=12,
+    font="Fira Code",
+    fontsize=13,
     padding=3,
     background=colors[0],
-    foreground=colors[4],
+    foreground=colors[3],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -116,14 +116,14 @@ screens = [
             [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(
-                    active = colors[2],
-                    inactive = "#555555",
+                    active = colors[4],
+                    inactive = colors[7],
                     highlight_method = "line",
                     highlight_color = colors[0],
                     this_screen_border = colors[4],
                     this_current_screen_border = colors[3],
                     other_screen_border = colors[4],
-                    other_current_screen_border = colors[3],
+                    other_current_screen_border = colors[5],
                 ),
                 widget.WindowName(),
                 widget.CryptoTicker(),
