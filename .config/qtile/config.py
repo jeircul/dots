@@ -107,28 +107,27 @@ widget_defaults = dict(
     padding=3,
     background=colors[0],
     foreground=colors[7],
+    active = colors[4],
+    inactive = colors[7],
+    highlight_method = "block",
+    block_highlight_text_color = colors[0],
+    urgent_border=colors[1],
+    urgent_text=colors[1],
+    this_screen_border = colors[4],
+    this_current_screen_border = colors[3],
+    other_screen_border = colors[4],
+    other_current_screen_border = colors[5],
 )
 extension_defaults = widget_defaults.copy()
+
 
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                widget.GroupBox(
-                    active = colors[4],
-                    inactive = colors[7],
-                    highlight_method = "block",
-                    block_highlight_text_color = colors[0],
-                    urgent_border=colors[1],
-                    urgent_text=colors[1],
-                    # highlight_color = colors[0],
-                    this_screen_border = colors[4],
-                    this_current_screen_border = colors[3],
-                    other_screen_border = colors[4],
-                    other_current_screen_border = colors[5],
-                ),
-                widget.WindowName(),
+                widget.GroupBox(),
+                widget.WindowName(foreground=colors[4], ),
                 widget.CryptoTicker(),
                 widget.Systray(),
                 widget.KeyboardLayout(configured_keyboards=['us', 'no'],
@@ -144,17 +143,8 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                widget.GroupBox(
-                    active = colors[4],
-                    inactive = colors[7],
-                    highlight_method = "line",
-                    highlight_color = colors[0],
-                    this_screen_border = colors[4],
-                    this_current_screen_border = colors[3],
-                    other_screen_border = colors[4],
-                    other_current_screen_border = colors[5],
-                ),
-                widget.WindowName(),
+                widget.GroupBox(),
+                widget.WindowName(foreground=colors[4]),
             ],
             24,
         ),
@@ -163,17 +153,8 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
-                widget.GroupBox(
-                    active = colors[4],
-                    inactive = colors[7],
-                    highlight_method = "line",
-                    highlight_color = colors[0],
-                    this_screen_border = colors[4],
-                    this_current_screen_border = colors[3],
-                    other_screen_border = colors[4],
-                    other_current_screen_border = colors[5],
-                ),
-                widget.WindowName(),
+                widget.GroupBox(),
+                widget.WindowName(foreground=colors[4]),
             ],
             24,
         ),
