@@ -10,7 +10,7 @@ if [ -n "${ZSH_VERSION-}" ]; then
   # If you are certain that you must export some environment variables
   # in ~/.zshenv (see comments at the top!), do it here:
 
-    
+
   # Paths need to be exported here to use with sxhkd
 
   if [ -n "${XDG_SESSION_DESKTOP+1}" ]; then
@@ -33,15 +33,15 @@ if [ -n "${ZSH_VERSION-}" ]; then
   export VISUAL="$EDITOR"
   export PAGER="less -R"
   export OPENER="xdg-open"
-  
+
   # LESS
   export LESS=-R
   export LESSHISTFILE="-"
   export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
-  
+
   # Man pages with color
   export MANPAGER="less -R --use-color -Dd+r -Du+b"
-  
+
   # Cleanup
   export XDG_CONFIG_HOME="$HOME/.config"
   export XDG_CACHE_HOME="$HOME/.cache"
