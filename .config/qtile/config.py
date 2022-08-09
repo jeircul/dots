@@ -159,6 +159,16 @@ screens = [
             24,
         ),
     ),
+    Screen(
+        top=bar.Bar(
+            [
+                widget.CurrentLayoutIcon(),
+                widget.GroupBox(),
+                widget.WindowName(foreground=colors[4]),
+            ],
+            24,
+        ),
+    ),
 ]
 
 # Drag floating layouts.
