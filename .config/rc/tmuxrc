@@ -1,6 +1,6 @@
 # Tmux switcher and starter
-tt() { projects=$(tmuxinator list -n | tail -n +2 | fzf)
-    [ "$projects" ] && tmuxinator start "$projects" }
+tt() { projects=$(tmuxp ls | fzf)
+    [ "$projects" ] && tmuxp load "$projects" -y }
 
 # zsh; needs setopt re_match_pcre. You can, of course, adapt it to your own shell easily.
 tmk () {
