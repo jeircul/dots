@@ -37,6 +37,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc='Toggle floating'),
     Key([mod], "d", lazy.spawn("rofi -combi-modi window,drun -show combi"), desc="Launch terminal"),
+    Key([mod], "e", lazy.spawn("thunar"), desc="Launch File Explorer"),
     Key([mod, "shift"], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
     Key([mod], "comma", lazy.prev_screen(), desc='Move focus to prev monitor'),
