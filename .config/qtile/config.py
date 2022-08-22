@@ -134,6 +134,7 @@ screens = [
                 widget.KeyboardLayout(configured_keyboards=['us', 'no'],
                 ),
                 widget.Volume(emoji=True),
+                widget.BatteryIcon(),
                 widget.Clock(format="%d/%m %a %H:%M"),
                 widget.QuickExit(foreground=colors[1]),
             ],
