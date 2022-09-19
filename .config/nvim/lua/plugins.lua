@@ -37,7 +37,7 @@ require('packer').startup(function()
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
 }
-  use 'navarasu/onedark.nvim'
+  use "olimorris/onedarkpro.nvim"
   use 'folke/tokyonight.nvim'
   use {'dracula/vim', as = 'dracula'}
   use 'dylanaraps/wal.vim'

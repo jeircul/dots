@@ -1,22 +1,13 @@
--- theme
-vim.o.termguicolors = true -- comment for colorscheme wal
+require("onedarkpro").setup({
+  dark_theme = "onedark_dark",
+  light_theme = "onelight",
+})
 
-require('onedark').setup {
-    style = 'darker',
-    transparent = 'true',
-}
-require('onedark').load()
--- tokyonight
---[[ vim.g.tokyonight_style = "night"
-vim.g.tokyonight_transparent = true
-vim.g.tokyonight_italic_functions = true ]]
+require('onedarkpro').load()
 
--- vim.cmd [[colorscheme tokyonight]]
-
--- comment for  colorscheme wal
 require('lualine').setup{
   options = {
-    theme = 'onedark',
+    theme = 'onedarkpro',
     section_separators = {'', ''},
     component_separators = {'', ''},
     icons_enabled = true,
