@@ -54,6 +54,8 @@ require('packer').startup(function()
   use {
     "williamboman/nvim-lsp-installer",
     "neovim/nvim-lspconfig",
+    "jose-elias-alvarez/null-ls.nvim",
+    "MunifTanjim/prettier.nvim",
 }
   use 'hrsh7th/nvim-compe'           -- Autocompletion plugin
   use 'hrsh7th/vim-vsnip'
