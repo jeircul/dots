@@ -69,9 +69,9 @@ groups = [
     Group("1", label="www"),
     Group("2", label="dev"),
     Group("3", label="chat"),
-    Group("4", label="mail"),
+    Group("4", label="www2"),
     Group("5", label="music"),
-    Group("6", label="other"),
+    Group("6", label="slack"),
 ]
 
 for i in groups:
