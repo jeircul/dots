@@ -72,6 +72,8 @@ groups = [
     Group("4", label="www2"),
     Group("5", label="music"),
     Group("6", label="slack"),
+    Group("7", label="signal"),
+    Group("8", label="other"),
 ]
 
 for i in groups:
