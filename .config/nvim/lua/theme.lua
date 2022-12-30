@@ -1,13 +1,16 @@
-require("onedarkpro").setup({
-  dark_theme = "onedark_dark",
-  light_theme = "onelight",
-})
-
-require('onedarkpro').load()
+require('onedark').setup {
+    style = 'darker',
+    transparent = true,  -- Show/hide background
+    -- term_colors = false, -- Change terminal color as per the selected theme style
+    lualine = {
+        transparent = true, -- lualine center bar transparency
+    },
+}
+require('onedark').load()
 
 require('lualine').setup{
   options = {
-    theme = 'onedarkpro',
+    theme = 'onedark',
     section_separators = {'', ''},
     component_separators = {'', ''},
     icons_enabled = true,

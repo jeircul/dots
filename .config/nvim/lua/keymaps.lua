@@ -14,3 +14,5 @@ map("n", "<leader>xx", "<cmd>LspTroubleToggle<cr>", options)
 map("n", "<C-s>", ':w<cr>', options)
 
 -- vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true}) -- Y yank until the end of line
+map("n", "<C-n>", ":NnnPicker %:p:h<cr>", { noremap = true, silent = true })
+map("n", "<C-e>", ":NnnExplorer %:p:h<cr>", { noremap = true, silent = true })

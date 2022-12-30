@@ -1,24 +1,40 @@
--- Install packer
-local execute = vim.api.nvim_command
-
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '.. install_path)
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
-vim.api.nvim_exec([[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]], false)
+local packer_bootstrap = ensure_packer()
 
-local use = require('packer').use
-require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'       -- Package manager
   -- Tools
-  use 'mcchrish/nnn.vim'
+  use {
+    'luukvbaal/nnn.nvim',
+    config = function()
+      local builtin = require("nnn").builtin
+      require('nnn').setup {
+        picker = {
+          fullscreen = false,
+        },
+        explorer = {
+          fullscreen = false,
+        },
+        mappings = {
+          { "<C-t>", builtin.open_in_tab },       -- open file(s) in tab
+          { "<C-s>", builtin.open_in_split },     -- open file(s) in split
+          { "<C-v>", builtin.open_in_vsplit },    -- open file(s) in vertical split
+          { "<C-p>", builtin.open_in_preview },   -- open file in preview split keeping nnn focused
+          { "<C-y>", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
+        }
+      }
+    end
+  }
   use 'kdheepak/lazygit.nvim'
   use 'tpope/vim-surround'           -- "Surround text with" actions
   use 'tpope/vim-fugitive'           -- Git commands in nvim
@@ -37,7 +53,7 @@ require('packer').startup(function()
     'hoob3rt/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
 }
-  use "olimorris/onedarkpro.nvim"
+  use 'navarasu/onedark.nvim'
   use 'folke/tokyonight.nvim'
   use {'dracula/vim', as = 'dracula'}
   use 'dylanaraps/wal.vim'
@@ -77,10 +93,7 @@ require('packer').startup(function()
   use 'glepnir/lspsaga.nvim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-
-  -- UI to select things (files, grep results, open buffers...)
-  --use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
-  -- Add indentation guides even on blank lines
-  -- Add git related info in the signs columns and popups
-  --use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'} }
+  if packer_bootstrap then
+    require('packer').sync()
+  end
 end)

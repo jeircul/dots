@@ -30,30 +30,11 @@ let g:fzf_colors =
   \ 'spinner':    ['fg', 'Label'],
   \ 'header':     ['fg', 'Comment'] }
 
-" NNN
-let g:nnn#set_default_mappings = 0
-nnoremap <C-n> :NnnPicker %:p:h<CR>
-nnoremap <C-e> :NnnPicker %:p:h<CR>
-let g:nnn#replace_netrw = 1
-let g:nnn#command = 'nnn -cHT v'
-let g:nnn#layout = { 'window': { 'width': 0.7, 'height': 0.8, 'highlight': 'Debug' } }
-let g:nnn#action = {
-      \ '<c-t>': 'tab split',
-      \ '<c-x>': 'split',
-      \ '<c-v>': 'vsplit' }
-
 " Tmux integration
 let g:tmux_resizer_no_mappings = 0
 
 " VimWiki
 let g:vimwiki_list = [{'path': '~/Nextcloud/Notes/vimwiki'}]
-
-" Comment on/off
-" let g:NERDSpaceDelims = 1
-" let g:NERDCompactSexyComs = 1
-" let g:NERDDefaultAlign = 'left'
-" let g:NERDTrimTrailingWhitespace = 1
-" let g:NERDToggleCheckAllLines = 1
 
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>lg :LazyGit<CR>
@@ -63,10 +44,6 @@ nnoremap <Leader>m :MarkdownPreview<CR>
 
 " Supersudo
 let g:suda_smart_edit = 1
-
-" Remove whitespace
-" let g:better_whitespace_enabled=1
-" let g:strip_whitespace_on_save=1
 
 " ansible-vim
 " If you want to override the default file type detection you can easily do this in your .vimrc.
