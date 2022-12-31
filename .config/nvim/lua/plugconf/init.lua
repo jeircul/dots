@@ -1,6 +1,3 @@
---lspfuzzy
-require('lspfuzzy').setup {}
-
 -- kommentary
 vim.api.nvim_set_keymap("n", "<leader>c<leader>", "<Plug>kommentary_line_default", {})
 

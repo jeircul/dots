@@ -18,6 +18,6 @@ map("n", "<C-n>", ":NnnPicker %:p:h<cr>", { noremap = true, silent = true })
 map("n", "<C-e>", ":NnnExplorer %:p:h<cr>", { noremap = true, silent = true })
 
 -- SnipRun
-map('v', 'f', '<Plug>SnipRun', {silent = true})
-map('n', '<leader>f', '<Plug>SnipRunOperator', {silent = true})
-map('n', '<leader>ff', '<Plug>SnipRun', {silent = true})
+map('v', 'r', '<Plug>SnipRun', {silent = true})
+map('n', '<leader>r', '<Plug>SnipRunOperator', {silent = true})
+map('n', '<leader>rr', '<Plug>SnipRun', {silent = true})

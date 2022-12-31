@@ -13,31 +13,13 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'       -- Package manager
-  -- Tools
+  -- Explorer
+  use 'luukvbaal/nnn.nvim'
   use {
-    'luukvbaal/nnn.nvim',
-    config = function()
-      local builtin = require("nnn").builtin
-      require('nnn').setup {
-        picker = {
-          fullscreen = false,
-          style = {
-            border = 'rounded'
-          }
-        },
-        explorer = {
-          fullscreen = false,
-        },
-        mappings = {
-          { "<C-t>", builtin.open_in_tab },       -- open file(s) in tab
-          { "<C-s>", builtin.open_in_split },     -- open file(s) in split
-          { "<C-v>", builtin.open_in_vsplit },    -- open file(s) in vertical split
-          { "<C-p>", builtin.open_in_preview },   -- open file in preview split keeping nnn focused
-          { "<C-y>", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
-        }
-      }
-    end
-  }
+  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
+  -- Tools
   use 'kdheepak/lazygit.nvim'
   use 'tpope/vim-surround'           -- "Surround text with" actions
   use 'tpope/vim-fugitive'           -- Git commands in nvim
@@ -62,14 +44,6 @@ return require('packer').startup(function(use)
   use {'dracula/vim', as = 'dracula'}
   use 'dylanaraps/wal.vim'
   use 'norcalli/nvim-colorizer.lua'
-  -- Fuzzyfy
-  use {
-  'ojroques/nvim-lspfuzzy',
-  requires = {
-    {'junegunn/fzf'},
-    {'junegunn/fzf.vim'},  -- to enable preview (optional)
-  },
-}
   -- Completion, snippets, syntax and LSP
   use {
     "williamboman/nvim-lsp-installer",
