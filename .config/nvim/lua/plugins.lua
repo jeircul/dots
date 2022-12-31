@@ -21,6 +21,9 @@ return require('packer').startup(function(use)
       require('nnn').setup {
         picker = {
           fullscreen = false,
+          style = {
+            border = 'rounded'
+          }
         },
         explorer = {
           fullscreen = false,
@@ -48,6 +51,7 @@ return require('packer').startup(function(use)
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
   use 'lukas-reineke/indent-blankline.nvim'
   use 'vimwiki/vimwiki'
+  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
   -- Beautify
   use {
     'hoob3rt/lualine.nvim',

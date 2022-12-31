@@ -5,7 +5,7 @@ if exists('$TMUX')
 else
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 endif
-nmap <Leader>f :Files ~/<CR>
+" nmap <Leader>f :Files ~/<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>g :GFiles<CR>
 nmap <Leader>c :Commands<CR>
