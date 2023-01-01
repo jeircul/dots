@@ -30,7 +30,11 @@ return require('packer').startup(function(use)
   use 'lambdalisue/suda.vim'
   use 'christoomey/vim-tmux-navigator'
   use 'melonmanchan/vim-tmux-resizer'
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+})
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'lukas-reineke/indent-blankline.nvim'
   use 'vimwiki/vimwiki'
   use { 'michaelb/sniprun', run = 'bash ./install.sh'}
@@ -56,6 +60,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip-integ'
   use "rafamadriz/friendly-snippets"
 
+  use 'glepnir/lspsaga.nvim'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
   -- use 'honza/vim-snippets'
   use 'sheerun/vim-polyglot'         -- Collection of sensible settings for various languages
   use 'pearofducks/ansible-vim'
@@ -67,9 +74,6 @@ return require('packer').startup(function(use)
     }
   end
 }
-  -- new test
-  use 'glepnir/lspsaga.nvim'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   if packer_bootstrap then
     require('packer').sync()

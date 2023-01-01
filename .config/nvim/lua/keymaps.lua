@@ -21,3 +21,9 @@ map("n", "<C-e>", ":NnnExplorer %:p:h<cr>", { noremap = true, silent = true })
 map('v', 'r', '<Plug>SnipRun', {silent = true})
 map('n', '<leader>r', '<Plug>SnipRunOperator', {silent = true})
 map('n', '<leader>rr', '<Plug>SnipRun', {silent = true})
+
+-- Lazygit
+map('n', '<leader>lg', ":LazyGit <cr>", {silent = true})
+
+-- MarkdownPreview
+map('n', '<leader>m', ":MarkdownPreview <cr>", {silent = true})
