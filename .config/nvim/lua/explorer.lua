@@ -13,9 +13,8 @@ local builtin = require("nnn").builtin
 require("nnn").setup({
 	picker = {
 		fullscreen = false,
-		cmd = "tmux new-session nnn -Pp",
+		cmd = "nnn -H",
 		style = { border = "rounded" },
-		session = "shared",
 	},
 	explorer = {
 		fullscreen = false,
