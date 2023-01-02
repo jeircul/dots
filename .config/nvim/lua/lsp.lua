@@ -36,19 +36,33 @@ local on_attach = function(_client, bufnr)
 end
 
 local servers = {
-  'ansiblels',
-  'bashls',
-  'bicep',
-  'clangd',
-  'dockerls',
-  'terraformls',
-  'powershell_es',
-  'pyright',
-  'rust_analyzer',
-  'sumneko_lua',
-  'tsserver',
-  'vimls',
-  'yamlls'
+  ansiblels = {},
+  bashls = {},
+  bicep = {},
+  clangd = {},
+  cssls = {},
+  dockerls = {},
+  html = {},
+  jsonls = {},
+  powershell_es = {},
+  pyright = {},
+  rust_analyzer = {},
+  terraformls = {},
+  tsserver = {},
+  vimls = {},
+  yamlls = {},
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        workspace = {
+          checkThirdParty = false,
+        },
+        completion = {
+          callSnippet = "Replace",
+        },
+      },
+    },
+  },
 }
 
 for _, lsp in ipairs(servers) do
