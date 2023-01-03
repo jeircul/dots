@@ -1,13 +1,12 @@
 -- Auto format
 -- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 vim.api.nvim_exec([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]], false)
 
-vim.api.nvim_exec([[
 augroup auto_spellcheck
     autocmd!
     autocmd BufNewFile,BufRead *.md setlocal spell

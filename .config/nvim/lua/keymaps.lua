@@ -4,7 +4,7 @@ local map = vim.api.nvim_set_keymap
 map('n', '<Space>', '', {})
 vim.g.mapleader = ' ' -- 'vim.g' sets global variables
 
-options = { noremap = true }
+local options = { noremap = true }
 map('n', '<esc><esc>', ':nohlsearch<cr>', options)
 map('n', '<TAB>', ':bnext<cr>', options)
 map('n', '<S-TAB>', ':bprev<cr>', options)
@@ -18,12 +18,12 @@ map("n", "<C-n>", ":NnnPicker %:p:h<cr>", { noremap = true, silent = true })
 map("n", "<C-e>", ":NnnExplorer %:p:h<cr>", { noremap = true, silent = true })
 
 -- SnipRun
-map('v', 'r', '<Plug>SnipRun', {silent = true})
-map('n', '<leader>r', '<Plug>SnipRunOperator', {silent = true})
-map('n', '<leader>rr', '<Plug>SnipRun', {silent = true})
+map('v', 'r', '<Plug>SnipRun', { silent = true })
+map('n', '<leader>r', '<Plug>SnipRunOperator', { silent = true })
+map('n', '<leader>rr', '<Plug>SnipRun', { silent = true })
 
 -- Lazygit
-map('n', '<leader>lg', ":LazyGit <cr>", {silent = true})
+map('n', '<leader>lg', ":LazyGit <cr>", { silent = true })
 
 -- MarkdownPreview
-map('n', '<leader>m', ":MarkdownPreview <cr>", {silent = true})
+map('n', '<leader>m', ":MarkdownPreview <cr>", { silent = true })

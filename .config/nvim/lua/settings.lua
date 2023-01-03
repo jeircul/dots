@@ -17,6 +17,7 @@ o.mouse = "a" -- Enable your mouse
 o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
+o.cursorline = true -- Enable highlighting of the current line
 
 -- window-local options
 wo.number = true -- display line numbers
