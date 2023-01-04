@@ -40,22 +40,20 @@ vim.keymap.set("n", "<C-s>", "<cmd>:w<cr><esc>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- new file
+vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
 -- lazygit
-vim.keymap.set("n", "<leader>lg", function()
-  require("lazy.util").open_cmd({ "lazygit" }, {
-    terminal = true,
-    close_on_exit = true,
-    enter = true,
-    float = {
-      size = { width = 0.9, height = 0.9 },
-      margin = { top = 0, right = 0, bottom = 0, left = 0 },
-    },
-  })
-end, { desc = "Lazygit" })
+vim.keymap.set("n", "<leader>gg", function()
+  require("lazyvim.util").float_term({ "lazygit" })
+end, { desc = "Lazygit for cwd" })
+vim.keymap.set("n", "<leader>gG", function()
+  local util = require("lazyvim.util")
+  util.float_term({ "lazygit" }, { cwd = util.get_root() })
+end, { desc = "Lazygit for root dir" })
 
 -- nnn
-vim.keymap.set("n", "<C-n>", ":NnnPicker %:p:h<CR>")
-vim.keymap.set("n", "<C-e>", ":NnnExplorer %:p:h<CR>")
+vim.keymap.set("n", "<C-n>", ":NnnPicker %:p:h<cr>")
 
 -- tmux navigator
 vim.keymap.set({ "n", "t" }, "<C-h>", "<CMD>NavigatorLeft<CR>")
