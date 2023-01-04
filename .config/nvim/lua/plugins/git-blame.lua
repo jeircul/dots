@@ -1,4 +1,6 @@
 return {
+
+  -- gitblame
   "f-person/git-blame.nvim",
   event = "BufRead",
   cmd = {
