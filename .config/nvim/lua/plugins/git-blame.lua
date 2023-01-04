@@ -1,8 +1,11 @@
 return {
   "f-person/git-blame.nvim",
-  cmd = "GitBlameToggle",
+  event = "BufRead",
+  cmd = {
+    "GitBlameToggle", "GitBlameEnable", "GitBlameDisable"
+  },
   lazy = true,
   keys = {
-    { "<leader>gb", "<cmd>GitBlameToggle<cr>", desc = "Git Blame" },
+    { "<leader>gb", "<cmd>GitBlameToggle<cr>", desc = "Git Blame toggle" },
   },
 }
