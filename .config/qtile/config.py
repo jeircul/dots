@@ -11,18 +11,24 @@ terminal = guess_terminal()
 mod = "mod4"
 browser = "qutebrowser"
 
+
 @hook.subscribe.startup_once
 def autostart():
     subprocess.Popen([home + '/.config/qtile/autostart.sh'])
 
+
 colors = []
 cache = home + '/.cache/wal/colors'
+
+
 def load_colors(cache):
     with open(cache, 'r') as file:
         for i in range(8):
             colors.append(file.readline().strip())
     colors.append('#ffffff')
     lazy.reload()
+
+
 load_colors(cache)
 
 
