@@ -3,7 +3,6 @@
 local servers = {
   ansiblels = {},
   bashls = {},
-  bicep = {},
   clangd = {},
   cssls = {},
   dockerls = {},
