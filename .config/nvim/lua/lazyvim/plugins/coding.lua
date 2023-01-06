@@ -1,37 +1,5 @@
 return {
 
-  -- SnipRun
-  {
-    -- Sniprun is a code runner plugin for neovim written in Lua and Rust.
-    "michaelb/sniprun",
-    build = "bash ./install.sh",
-    lazy = true,
-    init = function()
-      local opt = { silent = true }
-      vim.keymap.set("n", "<leader>r", function()
-        require("sniprun").run()
-      end, opt)
-      vim.keymap.set("n", "<leader>rr", function()
-        require("sniprun").run("n")
-      end, opt)
-      vim.keymap.set("v", "<leader>r", function()
-        require("sniprun").run("v")
-      end, opt)
-    end,
-
-    config = function()
-      require("sniprun").setup({
-        display = {
-          "NvimNotify",
-        },
-
-        display_options = {
-          notification_timeout = 10000,
-        },
-      })
-    end,
-  },
-
   -- snippets
   {
     "L3MON4D3/LuaSnip",
@@ -45,16 +13,18 @@ return {
       history = true,
       delete_check_events = "TextChanged",
     },
-    init = function()
-      local function jump(key, dir)
-        vim.keymap.set({ "i", "s" }, key, function()
-          return require("luasnip").jump(dir) or key
-        end, { expr = true })
-      end
-
-      jump("<tab>", 1)
-      jump("<s-tab>", -1)
-    end,
+    -- stylua: ignore
+    keys = {
+      {
+        "<tab>",
+        function()
+          return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
+        end,
+        expr = true, remap = true, silent = true, mode = "i",
+      },
+      { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
+      { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+    },
   },
 
   -- auto completion
@@ -123,18 +93,17 @@ return {
   -- surround
   {
     "echasnovski/mini.surround",
-    keys = { "gz" },
+    keys = { "gs" },
     config = function()
-      -- use gz mappings instead of s to prevent conflict with leap
       require("mini.surround").setup({
         mappings = {
-          add = "gza", -- Add surrounding in Normal and Visual modes
-          delete = "gzd", -- Delete surrounding
-          find = "gzf", -- Find surrounding (to the right)
-          find_left = "gzF", -- Find surrounding (to the left)
-          highlight = "gzh", -- Highlight surrounding
-          replace = "gzr", -- Replace surrounding
-          update_n_lines = "gzn", -- Update `n_lines`
+          add = "gsa", -- Add surrounding in Normal and Visual modes
+          delete = "gsd", -- Delete surrounding
+          find = "gsf", -- Find surrounding (to the right)
+          find_left = "gsF", -- Find surrounding (to the left)
+          highlight = "gsh", -- Highlight surrounding
+          replace = "gsr", -- Replace surrounding
+          update_n_lines = "gsn", -- Update `n_lines`
         },
       })
     end,
