@@ -1,3 +1,7 @@
+-- This file is automatically loaded by plugins.config
+
+local util = require("lazyvim.util")
+--
 -- navigate buffers
 vim.keymap.set("n", "<TAB>", ":bnext<cr>")
 vim.keymap.set("n", "<S-TAB>", ":bprev<cr>")
@@ -43,6 +47,19 @@ vim.keymap.set("v", ">", ">gv")
 -- new file
 vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
+-- toggle options
+vim.keymap.set("n", "<leader>tf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Format on Save" })
+vim.keymap.set("n", "<leader>ts", function()
+  util.toggle("spell")
+end, { desc = "Spelling" })
+vim.keymap.set("n", "<leader>tw", function()
+  util.toggle("wrap")
+end, { desc = "Word Wrap" })
+vim.keymap.set("n", "<leader>tn", function()
+  util.toggle("relativenumber", true)
+  util.toggle("number")
+end, { desc = "Line Numbers" })
+
 -- lazygit
 vim.keymap.set("n", "<leader>gg", function()
   require("lazyvim.util").float_term({ "lazygit" })
@@ -61,3 +78,8 @@ vim.keymap.set({ "n", "t" }, "<C-l>", "<CMD>NavigatorRight<CR>")
 vim.keymap.set({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
 vim.keymap.set({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
 vim.keymap.set({ "n", "t" }, "<C-p>", "<CMD>NavigatorPrevious<CR>")
+
+-- highlights under cursor
+if vim.fn.has("nvim-0.9.0") == 1 then
+  vim.keymap.set("n", "<leader>hl", vim.show_pos, { desc = "Highlight Groups at cursor" })
+end

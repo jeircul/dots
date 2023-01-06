@@ -42,8 +42,9 @@ return {
         function()
           require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
         end,
-        desc = "NeoTree",
+        desc = "NeoTree (root dir)",
       },
+      { "<leader>fT", "<cmd>Neotree toggle<CR>", desc = "NeoTree (cwd)" },
     },
     init = function()
       vim.g.neo_tree_remove_legacy_commands = 1
@@ -71,12 +72,13 @@ return {
     cmd = "Telescope",
     keys = {
       { "<leader>/", util.telescope("live_grep"), desc = "Find in Files (Grep)" },
-      { "<leader><space>", util.telescope("find_files"), desc = "Find Files" },
+      { "<leader><space>", util.telescope("find_files"), desc = "Find Files (root dir)" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>ff", util.telescope("find_files"), desc = "Find Files" },
+      { "<leader>ff", util.telescope("find_files"), desc = "Find Files (root dir)" },
+      { "<leader>fF", util.telescope("find_files", { cwd = false }), desc = "Find Files (cwd)" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
-      { "<leader>gc", "<Cmd>Telescope git_commits<CR>", desc = "commits" },
-      { "<leader>gs", "<Cmd>Telescope git_status<CR>", desc = "status" },
+      { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
+      { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
       { "<leader>ha", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
       { "<leader>hc", "<cmd>Telescope commands<cr>", desc = "Commands" },
       { "<leader>hf", "<cmd>Telescope filetypes<cr>", desc = "File Types" },
@@ -88,7 +90,8 @@ return {
       { "<leader>ht", "<cmd>Telescope builtin<cr>", desc = "Telescope" },
       { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
       { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
-      { "<leader>sg", util.telescope("live_grep"), desc = "Grep" },
+      { "<leader>sg", util.telescope("live_grep"), desc = "Grep (root dir)" },
+      { "<leader>sG", util.telescope("live_grep", { cwd = false }), desc = "Grep (cwd)" },
       { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
       { "<leader>,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
       { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
@@ -145,7 +148,6 @@ return {
     config = function()
       local wk = require("which-key")
       wk.setup({
-        show_help = false,
         plugins = { spelling = true },
         key_labels = { ["<leader>"] = "SPC" },
       })
@@ -160,9 +162,13 @@ return {
         ["<leader>g"] = { name = "+git" },
         ["<leader>h"] = { name = "+help" },
         ["<leader>n"] = { name = "+noice" },
+        ["<leader>o"] = { name = "+open" },
         ["<leader>q"] = { name = "+quit/session" },
         ["<leader>s"] = { name = "+search" },
+        ["<leader>t"] = { name = "+toggle" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
+        ["<leader>w"] = { name = "+windows" },
+        ["<leader><tab>"] = { name = "+tabs" },
       })
     end,
   },
