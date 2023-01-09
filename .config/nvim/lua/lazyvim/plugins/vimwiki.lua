@@ -1,6 +1,4 @@
 return {
-
-  -- vimwiki
   {
     "vimwiki/vimwiki",
     cmd = "VimwikiIndex",
