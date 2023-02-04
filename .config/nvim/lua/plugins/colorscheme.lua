@@ -27,16 +27,17 @@ return {
         transparent = true,
         lualine = {
           transparent = true,
-        }
+        },
       })
       -- onedark.load()
     end,
   },
 
-  -- catppuccin
+  -- Configure LazyVim to load gruvbox
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
+    },
   },
 }

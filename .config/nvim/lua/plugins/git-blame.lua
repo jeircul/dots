@@ -4,7 +4,9 @@ return {
   "f-person/git-blame.nvim",
   event = "BufRead",
   cmd = {
-    "GitBlameToggle", "GitBlameEnable", "GitBlameDisable"
+    "GitBlameToggle",
+    "GitBlameEnable",
+    "GitBlameDisable",
   },
   lazy = true,
   keys = {
