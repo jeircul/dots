@@ -37,35 +37,63 @@ keys = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     Key([mod], "t", lazy.screen.next_group()),
     Key([mod], "m", lazy.layout.maximize()),
-    Key([mod], "b", lazy.spawn(browser), desc="Launch terminal"),
-    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Launch Flameshot"),
-    Key([mod], "BackSpace", lazy.spawn(home + "/scripts/dmenu/powermenu"), desc="Launch powermenu"),
+    Key([mod], "b", lazy.spawn(browser),
+        desc="Launch terminal"),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"),
+        desc="Launch Flameshot"),
+    Key([mod], "BackSpace", lazy.spawn(home + "/scripts/dmenu/powermenu"),
+        desc="Launch powermenu"),
     Key([mod], "f", lazy.window.toggle_fullscreen()),
-    # Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc='Toggle floating'),
-    Key([mod], "d", lazy.spawn("rofi -combi-modi window,drun -show combi"), desc="Launch terminal"),
-    Key([mod], "e", lazy.spawn("thunar"), desc="Launch File Explorer"),
-    Key([mod, "shift"], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "period", lazy.next_screen(), desc='Move focus to next monitor'),
-    Key([mod], "comma", lazy.prev_screen(), desc='Move focus to prev monitor'),
-    Key([mod], "h", lazy.layout.shrink(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.grow(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    # Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "Tab", lazy.window.toggle_floating(), desc="Toggle floating"),
-    Key(["mod1"], "Tab", lazy.screen.toggle_group(), desc="Toggle between layouts"),
-    Key([mod, "shift"], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
+    # Key([mod, "shift"], "f", lazy.window.toggle_floating(),
+    # desc='Toggle floating'),
+    Key([mod], "d", lazy.spawn("rofi -combi-modi window,drun -show combi"),
+        desc="Launch terminal"),
+    Key([mod], "e", lazy.spawn("thunar"),
+        desc="Launch File Explorer"),
+    Key([mod, "shift"], "d", lazy.spawncmd(),
+        desc="Spawn a command using a prompt widget"),
+    Key([mod], "period", lazy.next_screen(),
+        desc='Move focus to next monitor'),
+    Key([mod], "comma", lazy.prev_screen(),
+        desc='Move focus to prev monitor'),
+    Key([mod], "h", lazy.layout.shrink(),
+        desc="Move focus to left"),
+    Key([mod], "l", lazy.layout.grow(),
+        desc="Move focus to right"),
+    Key([mod], "j", lazy.layout.down(),
+        desc="Move focus down"),
+    Key([mod], "k", lazy.layout.up(),
+        desc="Move focus up"),
+    # Key([mod], "space", lazy.layout.next(),
+    # desc="Move window focus to other window"),
+    Key([mod, "shift"], "h", lazy.layout.shuffle_left(),
+        desc="Move window to the left"),
+    Key([mod, "shift"], "l", lazy.layout.shuffle_right(),
+        desc="Move window to the right"),
+    Key([mod, "shift"], "j", lazy.layout.shuffle_down(),
+        desc="Move window down"),
+    Key([mod, "shift"], "k", lazy.layout.shuffle_up(),
+        desc="Move window up"),
+    Key([mod], "n", lazy.layout.normalize(),
+        desc="Reset all window sizes"),
+    Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack"),
+    Key([mod], "Return", lazy.spawn(terminal),
+        desc="Launch terminal"),
+    Key([mod], "Tab", lazy.window.toggle_floating(),
+        desc="Toggle floating"),
+    Key(["mod1"], "Tab", lazy.screen.toggle_group(),
+        desc="Toggle between layouts"),
+    Key([mod, "shift"], "Tab", lazy.next_layout(),
+        desc="Toggle between layouts"),
+    Key([mod], "q", lazy.window.kill(),
+        desc="Kill focused window"),
+    Key([mod], "r", lazy.reload_config(),
+        desc="Reload the config"),
+    Key([mod, "control"], "q", lazy.shutdown(),
+        desc="Shutdown Qtile"),
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(),
+        desc="Next keyboard layout."),
 ]
 
 # groups = [Group(i) for i in "123456"]
@@ -115,16 +143,16 @@ widget_defaults = dict(
     padding=3,
     background=colors[0],
     foreground=colors[7],
-    active = colors[4],
-    inactive = colors[7],
-    highlight_method = "block",
-    block_highlight_text_color = colors[0],
+    active=colors[4],
+    inactive=colors[7],
+    highlight_method="block",
+    block_highlight_text_color=colors[0],
     urgent_border=colors[1],
     urgent_text=colors[1],
-    this_screen_border = colors[4],
-    this_current_screen_border = colors[3],
-    other_screen_border = colors[4],
-    other_current_screen_border = colors[5],
+    this_screen_border=colors[4],
+    this_current_screen_border=colors[3],
+    other_screen_border=colors[4],
+    other_current_screen_border=colors[5],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -138,8 +166,7 @@ screens = [
                 widget.WindowName(foreground=colors[4], ),
                 widget.CryptoTicker(),
                 widget.Systray(),
-                widget.KeyboardLayout(configured_keyboards=['us', 'no'],
-                ),
+                widget.KeyboardLayout(configured_keyboards=['us', 'no']),
                 widget.Volume(emoji=True),
                 widget.BatteryIcon(),
                 widget.Clock(format="%d/%m %a %H:%M"),
@@ -182,9 +209,14 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag(["shift"], "Button1", move_snap_window(snap_dist=20),
-        start=lazy.window.get_position()),
-    Drag(["shift"], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        ["shift"], "Button1", move_snap_window(snap_dist=20),
+        start=lazy.window.get_position()
+    ),
+    Drag(
+        ["shift"], "Button3", lazy.window.set_size_floating(),
+        start=lazy.window.get_size()
+    ),
     Click(["shift"], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -195,7 +227,7 @@ bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
     float_rules=[
-        # Run the utility of `xprop` to see the wm class and name of an X client.
+        # Run the utility of xprop to see the wm class and name of an X client.
         *layout.Floating.default_float_rules,
         Match(wm_class="confirmreset"),  # gitk
         Match(wm_class="makebranch"),  # gitk
@@ -224,4 +256,3 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
