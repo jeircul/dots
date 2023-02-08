@@ -3,4 +3,3 @@
 -- Add any additional options here
 
 vim.opt.autowrite = false -- Enable auto write
-vim.opt.sessionoptions = { "curdir", "tabpages", "winsize" }
