@@ -135,7 +135,21 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 widget.WindowName(foreground=colors[4], ),
-                widget.CryptoTicker(),
+                widget.CryptoTicker(
+                    format='|\uf15a {amount:.0f}|'
+                ),
+                widget.CryptoTicker(
+                    crypto='ETH', format='|\ue656 {amount:.0f}|'
+                ),
+                widget.CryptoTicker(
+                    crypto='DOT', format='|DOT {amount:.2f}|'
+                ),
+                widget.CryptoTicker(
+                    crypto='ATOM', format='|ATOM {amount:.2f}|'
+                ),
+                widget.CryptoTicker(
+                    crypto='MATIC', format='|MATIC {amount:.3f}|'
+                ),
                 widget.Systray(),
                 widget.KeyboardLayout(configured_keyboards=['us', 'no']),
                 widget.Volume(emoji=True),
