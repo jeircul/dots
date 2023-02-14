@@ -2,34 +2,57 @@ return {
 
   -- tokyonight
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
+    "tokyonight.nvim",
     config = function()
       local tokyonight = require("tokyonight")
       tokyonight.setup({
         style = "night",
         transparent = true,
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        },
       })
-      tokyonight.load()
+    end,
+  },
+
+  -- tokyonight
+  {
+    "catppuccin/nvim",
+    config = function()
+      local catppuccin = require("catppuccin")
+      catppuccin.setup({
+        flavour = "mocha",
+        transparent_background = true,
+        term_colors = true,
+      })
     end,
   },
 
   -- onedark
   {
     "navarasu/onedark.nvim",
-    lazy = false,
-    priority = 1000,
     config = function()
       local onedark = require("onedark")
       onedark.setup({
         style = "darker",
         transparent = true,
-        lualine = {
-          transparent = true,
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
         },
       })
-      -- onedark.load()
+    end,
+  },
+
+  -- Gruvbox
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      local gruvbox = require("gruvbox")
+      gruvbox.setup({
+        transparent_mode = true,
+      })
     end,
   },
 
