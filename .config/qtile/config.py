@@ -17,10 +17,6 @@ def autostart():
     subprocess.Popen([home + '/.config/qtile/autostart.sh'])
 
 
-colors = []
-cache = home + '/.cache/wal/colors'
-
-
 def load_colors(cache):
     with open(cache, 'r') as file:
         for i in range(8):
@@ -29,6 +25,8 @@ def load_colors(cache):
     lazy.reload()
 
 
+colors = []
+cache = home + '/.cache/wal/colors'
 load_colors(cache)
 
 
@@ -106,8 +104,8 @@ layout_theme = {
 
 layouts = [
     layout.MonadTall(**layout_theme),
-    layout.Max(),
-    layout.Bsp(),
+    layout.Bsp(**layout_theme),
+    layout.Max(**layout_theme),
 ]
 
 widget_defaults = dict(
