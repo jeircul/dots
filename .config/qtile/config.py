@@ -161,7 +161,12 @@ screens = [
                 widget.Volume(emoji=True),
                 widget.BatteryIcon(),
                 widget.Clock(format="%d/%m %a %H:%M"),
-                widget.QuickExit(foreground=colors[1]),
+                widget.QuickExit(
+                    foreground=colors[1],
+                    default_text='[\ueb2d]',
+                    countdown_format='[{}]',
+                )
+
             ],
             24,
         ),
