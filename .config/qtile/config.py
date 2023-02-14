@@ -39,7 +39,7 @@ keys = [
     Key([mod], "e", lazy.spawn("thunar")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
     Key([mod], "BackSpace", lazy.spawn(home + "/scripts/dmenu/powermenu")),
-    Key([mod, "shift"], "d", lazy.spawncmd()),
+    # Key([mod, "shift"], "d", lazy.spawncmd()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "r", lazy.reload_config()),
     Key([mod, "control"], "q", lazy.shutdown()),
@@ -86,12 +86,12 @@ for i in groups:
             Key(
                 [mod], i.name,
                 lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                desc=f"Switch to group {i.name}",
             ),
             Key(
                 [mod, "shift"], i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
+                desc=f"Switch to & move focused window to group {i.name}",
             ),
         ]
     )
