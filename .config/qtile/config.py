@@ -99,7 +99,7 @@ for i in groups:
 layout_theme = {
     "border_focus": colors[4],
     "border_normal": colors[0],
-    "font": "Fira Code",
+    "font": "FiraCode Nerd Font Mono Regular",
 }
 
 layouts = [
@@ -109,7 +109,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Fira Code",
+    font="FiraCode Nerd Font Mono Regular",
     fontsize=14,
     padding=3,
     background=colors[0],
