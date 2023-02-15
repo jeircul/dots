@@ -7,11 +7,11 @@ return {
       local tokyonight = require("tokyonight")
       tokyonight.setup({
         style = "night",
-        transparent = true,
-        styles = {
-          sidebars = "transparent",
-          floats = "transparent",
-        },
+        -- transparent = true,
+        -- styles = {
+        --   sidebars = "transparent",
+        --   floats = "transparent",
+        -- },
       })
     end,
   },
