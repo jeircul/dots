@@ -109,8 +109,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="FiraCode Nerd Font Mono Regular",
-    fontsize=14,
+    font="FiraCode Nerd Font Mono Bold",
+    fontsize=13,
     padding=3,
     background=colors[0],
     foreground=colors[7],
@@ -138,7 +138,7 @@ screens = [
                     foreground=colors[4],
                 ),
                 widget.CryptoTicker(
-                    format='\uf15a {amount:.0f}|'
+                    format='\uf6ab {amount:.0f}|'
                 ),
                 widget.CryptoTicker(
                     crypto='ETH',
