@@ -138,23 +138,23 @@ screens = [
                     foreground=colors[4],
                 ),
                 widget.CryptoTicker(
-                    format='\uf6ab {amount:.0f}|'
+                    format='\uf6ab {amount:.0f} |'
                 ),
                 widget.CryptoTicker(
                     crypto='ETH',
-                    format='\ue656 {amount:.0f}|'
+                    format='\ue656 {amount:.0f} |'
                 ),
                 widget.CryptoTicker(
                     crypto='DOT',
-                    format='DOT {amount:.3f}|'
+                    format='DOT {amount:.3f} |'
                 ),
                 widget.CryptoTicker(
                     crypto='ATOM',
-                    format='ATOM {amount:.3f}|'
+                    format='ATOM {amount:.3f} |'
                 ),
                 widget.CryptoTicker(
                     crypto='MATIC',
-                    format='MATIC {amount:.3f}|'
+                    format='MATIC {amount:.3f} |'
                 ),
                 widget.Systray(),
                 widget.KeyboardLayout(configured_keyboards=['us', 'no']),
