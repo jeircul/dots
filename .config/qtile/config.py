@@ -7,6 +7,7 @@ from libqtile.utils import guess_terminal
 from floating_window_snapping import move_snap_window
 
 home = os.path.expanduser('~')
+dmenus = f"{home}/scripts/dmenu"
 terminal = guess_terminal()
 mod = "mod4"
 browser = "qutebrowser"
@@ -35,10 +36,11 @@ keys = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     Key([mod], "Return", lazy.spawn(terminal)),
     Key([mod], "b", lazy.spawn(browser)),
+    Key([mod, "shift"], "b", lazy.spawn(f"{dmenus}/qutebrowser-profile")),
     Key([mod], "d", lazy.spawn("rofi -combi-modi window,drun -show combi")),
     Key([mod], "e", lazy.spawn("thunar")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
-    Key([mod], "BackSpace", lazy.spawn(home + "/scripts/dmenu/powermenu")),
+    Key([mod], "BackSpace", lazy.spawn(f"{dmenus}/powermenu")),
     # Key([mod, "shift"], "d", lazy.spawncmd()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "r", lazy.reload_config()),
