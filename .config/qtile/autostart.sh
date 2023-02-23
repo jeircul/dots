@@ -8,6 +8,7 @@ _run() { pidof "$1" || { $1 & } ;}
 # Run if not running
 pidof picom > /dev/null || { picom -f > /dev/null 2>&1 & }
 pgrep -x mopidy > /dev/null || { mopidy > /dev/null 2>&1 & }
+pgrep blueman || { blueman-applet > /dev/null 2>&1 &}
 gnome-keyring-daemon --start /usr/lib/polkit-1/polkit-agent-helper-1 &
 xsetroot -cursor_name left_ptr
 autorandr -c &
@@ -22,3 +23,4 @@ _run mullvad-vpn &
 _run unclutter &
 _run clipmenud &
 _run birdtray &
+_run blueman-applet &
