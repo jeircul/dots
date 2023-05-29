@@ -99,11 +99,11 @@ keys = [
 
 groups = [
     # Group("1", label="www", matches=[Match(wm_class="firefox")]),
-    Group("1", label="www", layout="max"),
+    Group("1", label="www"),
     Group("2", label="dev"),
-    Group("3", label="chat"),
-    Group("4", label="info"),
-    Group("5", label="music"),
+    Group("3", label="chat", layout="treetab"),
+    Group("4", label="info", layout="treetab"),
+    Group("5", label="music", layout="max"),
     Group("6", label="draft"),
     Group("7", label="other"),
 ]
