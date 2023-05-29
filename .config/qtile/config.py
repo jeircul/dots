@@ -31,6 +31,32 @@ cache = home + '/.cache/wal/colors'
 load_colors(cache)
 
 
+layout_theme = {
+    "border_focus": colors[4],
+    "border_normal": colors[0],
+    "font": "FiraCode Nerd Font Mono Regular",
+    "active_fg": colors[0],
+    "active_bg": colors[5],
+    "inactive_fg": colors[7],
+    "inactive_bg": colors[0],
+}
+
+layouts = [
+    layout.MonadTall(**layout_theme),
+    layout.TreeTab(**layout_theme),
+    layout.Max(**layout_theme),
+    # Try more layouts by unleashing below layouts.
+    # layout.Stack(num_stacks=2),
+    # layout.Bsp(),
+    # layout.Matrix(),
+    # layout.MonadTall(),
+    # layout.RatioTile(),
+    # layout.Tile(),
+    # layout.VerticalTile(),
+    # layout.Zoomy(),
+]
+
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -56,7 +82,7 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "Tab", lazy.next_layout()),
+    Key([mod], "Tab", lazy.next_layout()),
     Key([mod], "i", lazy.layout.grow()),
     Key([mod], "m", lazy.layout.shrink()),
     Key([mod], "n", lazy.layout.normalize()),
@@ -65,7 +91,7 @@ keys = [
     # Screen
     Key([mod], "period", lazy.next_screen()),
     Key([mod], "comma", lazy.prev_screen()),
-    Key([mod], "Tab", lazy.window.toggle_floating()),
+    Key([mod, "shift"], "Tab", lazy.window.toggle_floating()),
     Key(["mod1"], "Tab", lazy.screen.toggle_group()),
 ]
 
@@ -73,12 +99,12 @@ keys = [
 
 groups = [
     # Group("1", label="www", matches=[Match(wm_class="firefox")]),
-    Group("1", label="www"),
+    Group("1", label="www", layout="max"),
     Group("2", label="dev"),
     Group("3", label="chat"),
-    Group("4", label="www2"),
+    Group("4", label="info"),
     Group("5", label="music"),
-    Group("6", label="slack"),
+    Group("6", label="draft"),
     Group("7", label="other"),
 ]
 
@@ -97,17 +123,6 @@ for i in groups:
             ),
         ]
     )
-
-layout_theme = {
-    "border_focus": colors[4],
-    "border_normal": colors[0],
-    "font": "FiraCode Nerd Font Mono Regular",
-}
-
-layouts = [
-    layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
-]
 
 widget_defaults = dict(
     font="FiraCode Nerd Font Mono Bold",
@@ -205,17 +220,17 @@ screens = [
 ]
 
 # Drag floating layouts.
-mouse = [
-    Drag(
-        ["shift"], "Button1", move_snap_window(snap_dist=20),
-        start=lazy.window.get_position()
-    ),
-    Drag(
-        ["shift"], "Button3", lazy.window.set_size_floating(),
-        start=lazy.window.get_size()
-    ),
-    Click(["shift"], "Button2", lazy.window.bring_to_front()),
-]
+# mouse = [
+#     Drag(
+#         ["shift"], "Button1", move_snap_window(snap_dist=20),
+#         start=lazy.window.get_position()
+#     ),
+#     Drag(
+#         ["shift"], "Button3", lazy.window.set_size_floating(),
+#         start=lazy.window.get_size()
+#     ),
+#     Click(["shift"], "Button2", lazy.window.bring_to_front()),
+# ]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
