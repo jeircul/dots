@@ -52,7 +52,7 @@ layouts = [
     # layout.MonadTall(),
     # layout.RatioTile(),
     # layout.Tile(),
-    # layout.VerticalTile(),
+    layout.VerticalTile(),
     # layout.Zoomy(),
 ]
 
