@@ -43,17 +43,9 @@ layout_theme = {
 
 layouts = [
     layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
     layout.TreeTab(**layout_theme),
     layout.Max(**layout_theme),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 
@@ -102,7 +94,7 @@ groups = [
     Group("1", label="www"),
     Group("2", label="dev"),
     Group("3", label="chat", layout="treetab"),
-    Group("4", label="info", layout="treetab"),
+    Group("4", label="info"),
     Group("5", label="music", layout="max"),
     Group("6", label="draft"),
     Group("7", label="other"),

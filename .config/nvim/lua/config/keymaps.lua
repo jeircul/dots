@@ -16,5 +16,11 @@ vim.keymap.set({ "n", "t" }, "<C-k>", "<CMD>NavigatorUp<CR>")
 vim.keymap.set({ "n", "t" }, "<C-j>", "<CMD>NavigatorDown<CR>")
 vim.keymap.set({ "n", "t" }, "<C-p>", "<CMD>NavigatorPrevious<CR>")
 
+-- code runner
+vim.keymap.set("n", "<leader>rc", "<cmd>RunCode<CR>", { desc = "Run Code" })
+vim.keymap.set("n", "<leader>rf", "<cmd>RunFile<CR>", { desc = "Run File" })
+vim.keymap.set("n", "<leader>rp", "<cmd>RunProject<CR>", { desc = "Run Project" })
+vim.keymap.set("n", "<leader>rc", "<cmd>RunClose<CR>", { desc = "Close" })
+
 -- disable keymap
 vim.api.nvim_del_keymap("n", "<leader>ww") -- should be vimwiki instead
