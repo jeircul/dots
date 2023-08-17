@@ -42,10 +42,11 @@ layout_theme = {
 }
 
 layouts = [
-    layout.MonadTall(**layout_theme),
+    layout.MonadThreeCol(**layout_theme),
     layout.MonadWide(**layout_theme),
     layout.TreeTab(**layout_theme),
     layout.Max(**layout_theme),
+    # layout.MonadTall(**layout_theme), TESTING MonadThreeCol to replace this
 ]
 
 
