@@ -21,7 +21,7 @@ install_package() {
 download_playbook() {
 	if ! test -f "$PLAYBOOK_PATH/configure_fedora_qtile.yml"; then
 		echo "Ansible playbook does not exists, downloading..."
-		curl -sOL https://raw.githubusercontent.com/jeircul/dots/main/.config/autoinstall/configure_fedora_qtile.yml --output-dir "$HOME/.config/ansible/playbooks/configure_fedora_qtile/yml"
+		curl -sL https://raw.githubusercontent.com/jeircul/dots/main/.config/autoinstall/configure_fedora_qtile.yml --output-dir "$HOME/.config/ansible/playbooks/configure_fedora_qtile/yml"
 	fi
 }
 
