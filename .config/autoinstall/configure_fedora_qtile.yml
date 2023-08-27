@@ -34,13 +34,16 @@
       - python3-pip
       - gcc
       - gcc-c++
+      - composer
       - cargo
       - go
       - ruby
       - luarocks
       - php
       - java
+      - javacc
       - julia
+      - perl
 
   tasks:
     - name: Improve DNF Performance
@@ -189,7 +192,7 @@
     - name: Copy wgetrc from etc
       ansible.builtin.copy:
         src: /etc/wgetrc
-        dest: /home/{{ ansible_user_id }}/.config/wget/wgetrc
+        dest: /home/{{ ansible_user_id }}/.config/wget/
         owner: jeircul
         group: jeircul
         mode: '0644'
