@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Run install.sh
-# curl -sL https://raw.githubusercontent.com/jeircul/dots/main/install.sh | bash
+# Run script
+# curl -sL https://raw.githubusercontent.com/jeircul/dots/main/.config/autoinstall/setup_fedora38_qtile_from_gnome_ws.sh | bash
 
 # Download install.sh
 # curl -sOL https://raw.githubusercontent.com/jeircul/dots/main/install.sh
@@ -21,7 +21,7 @@ install_package() {
 download_playbook() {
 	if ! test -f "$PLAYBOOK_PATH/configure_fedora_qtile.yml"; then
 		echo "Ansible playbook does not exists, downloading..."
-		curl -sOL https://raw.githubusercontent.com/jeircul/dots/main/configure_fedora_qtile.yml --output-dir "$PLAYBOOK_PATH/configure_fedora_qtile/yml"
+		curl -sOL https://raw.githubusercontent.com/jeircul/dots/main/.config/autoinstall/configure_fedora_qtile.yml --output-dir "$PLAYBOOK_PATH/configure_fedora_qtile/yml"
 	fi
 }
 
