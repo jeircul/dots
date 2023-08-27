@@ -25,7 +25,7 @@ main() {
 	install_package ansible
 	install_package gh
 	clone_repo
-	ansible-playbook "$HOME/git/.config/autoinstall/configure_fedora_qtile.yml" -K
+	ansible-playbook "$HOME/git/dots/.config/autoinstall/configure_fedora_qtile.yml" -K
 }
 
 main
