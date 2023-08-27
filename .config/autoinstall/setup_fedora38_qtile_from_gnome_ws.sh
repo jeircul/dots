@@ -14,6 +14,9 @@ clone_repo() {
 	if ! test -d "$HOME/git/dots/"; then
 		mkdir -p "$HOME/git"
 		git clone https://github.com/jeircul/dots "$HOME/git/dots"
+	else
+		cd "$HOME/git/dots/" || return
+		git pull
 	fi
 }
 
