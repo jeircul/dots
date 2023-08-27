@@ -149,12 +149,14 @@
           cd /home/{{ ansible_user_id }}/git/keyd
           make && sudo make install
         creates: /usr/bin/keyd
+      become: true
 
     - name: Enable keyd
       ansible.builtin.systemd:
         name: keyd.service
         state: started
         enabled: true
+      become: true
 
     - name: Create keyd config
       ansible.builtin.blockinfile:
@@ -169,6 +171,7 @@
           # Maps capslock to escape when pressed and control when held.
           capslock = overload(control, esc)
         create: true
+      become: true
 
     - name: Clone qutebrowser
       ansible.builtin.git:
