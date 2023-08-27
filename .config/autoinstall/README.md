@@ -4,6 +4,8 @@
 
 - Download Fedora 38 Workstation, create bootable usb
 - Boot usb, connect to wifi and then start installing
+  - Recommed to encrypt disk
+  - Use two languages with English as default
 - Start setup on first boot
   - Uncheck automatic problem reporting
   - Enable Third-Party Repositories
