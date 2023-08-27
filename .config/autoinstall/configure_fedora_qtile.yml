@@ -186,6 +186,15 @@
         dest: /home/{{ ansible_user_id }}/.config/qutebrowser/
         mode: u+rwx
 
+    - name: Copy wgetrc from etc
+      ansible.builtin.copy:
+        src: /etc/wgetrc
+        dest: /home/{{ ansible_user_id }}/.config/wget/wgetrc
+        owner: jeircul
+        group: jeircul
+        mode: '0644'
+      become: true
+
     - name: Test if gh-cli is logged in
       ansible.builtin.shell:
         cmd: gh auth token
