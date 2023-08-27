@@ -22,6 +22,7 @@
       - ripgrep
       - picom
       - dunst
+      - xset
       - neofetch
       - zathura
       - zathura-plugins-all
