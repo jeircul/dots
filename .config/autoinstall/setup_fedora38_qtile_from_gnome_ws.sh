@@ -29,7 +29,7 @@ main() {
 	install_package ansible
 	install_package gh
 	download_playbook
-	ansible-playbook "$HOME/.config/ansible/playbooks/configure_fedora_qtile.yml" -K
+	ansible-playbook "$PLAYBOOK_PATH/configure_fedora_qtile.yml" -K
 }
 
 main
