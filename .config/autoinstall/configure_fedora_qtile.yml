@@ -26,6 +26,9 @@
       - xset
       - xclip
       - slock
+      - autorandr
+      - arandr
+      - wireguard-tools
       - neofetch
       - zathura
       - zathura-plugins-all
@@ -47,6 +50,14 @@
       - javacc
       - julia
       - perl
+      - fontawesome-fonts
+      - xarchiver
+      - powertop
+      - "@System Tools"
+      - "@LibreOffice"
+      - "@Firefox"
+      - bluez
+      - bluez-tools # start bluetooth service
 
   tasks:
     - name: Improve DNF Performance
