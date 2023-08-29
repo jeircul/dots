@@ -21,8 +21,11 @@
       - qutebrowser
       - ripgrep
       - picom
+      - lxappearance
       - dunst
       - xset
+      - xclip
+      - slock
       - neofetch
       - zathura
       - zathura-plugins-all
