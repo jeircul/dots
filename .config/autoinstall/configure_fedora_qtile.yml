@@ -58,6 +58,7 @@
       - "@Firefox"
       - bluez
       - bluez-tools # start bluetooth service
+      - NetworkManager-bluetooth
 
   tasks:
     - name: Improve DNF Performance
