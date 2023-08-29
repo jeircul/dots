@@ -53,8 +53,14 @@
       - fontawesome-fonts
       - xarchiver
       - powertop
-      - "@System Tools"
+      - "@Administration Tools"
+      - "@C Development Tools and Libraries"
+      - "@Development Tools"
+      - "@Editors"
       - "@LibreOffice"
+      - "@Fonts"
+      - "@Hardware Support"
+      - "@System Tools"
       - "@Firefox"
       - bluez
       - bluez-tools # start bluetooth service
