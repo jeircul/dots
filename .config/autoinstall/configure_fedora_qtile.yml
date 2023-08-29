@@ -18,6 +18,8 @@
       - gh
       - rofi
       - fzf
+      - mpv
+      - mpd
       - qutebrowser
       - ripgrep
       - picom
