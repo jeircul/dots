@@ -11,11 +11,11 @@ install_package() {
 }
 
 clone_repo() {
-	if ! test -d "$HOME/git/dots/"; then
+	if ! test -d "$HOME/git/jeircul/dots/"; then
 		mkdir -p "$HOME/git"
-		git clone https://github.com/jeircul/dots "$HOME/git/dots"
+		git clone https://github.com/jeircul/dots "$HOME/git/jeircul/dots"
 	else
-		cd "$HOME/git/dots/" || return
+		cd "$HOME/git/jeircul/dots/" || return
 		git pull
 	fi
 }
@@ -25,7 +25,7 @@ main() {
 	install_package ansible
 	install_package gh
 	clone_repo
-	ansible-playbook "$HOME/git/dots/.config/autoinstall/configure_fedora_qtile.yml" -K
+	ansible-playbook "$HOME/git/jeircul/dots/.config/autoinstall/configure_fedora_qtile.yml" -K
 }
 
 main
