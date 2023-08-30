@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+SOFTWARE=(git ansible gh)
+DOTFILE_REPO="https://github.com/jeircul/dots"
+LOCAL_DOTFILE_PATH="$HOME/git/jeircul/dots/"
+ANSIBLE_PLAYBOOK="$HOME/git/jeircul/dots/.config/autoinstall/configure_fedora_qtile.yml"
+
 command_exists() {
 	command -v "$@" >/dev/null 2>&1
 }
@@ -11,21 +16,21 @@ install_package() {
 }
 
 clone_repo() {
-	if ! test -d "$HOME/git/jeircul/dots/"; then
+	if ! test -d "$LOCAL_DOTFILE_PATH"; then
 		mkdir -p "$HOME/git"
-		git clone https://github.com/jeircul/dots "$HOME/git/jeircul/dots"
+		git clone "$DOTFILE_REPO" "$LOCAL_DOTFILE_PATH"
 	else
-		cd "$HOME/git/jeircul/dots/" || return
+		cd "$LOCAL_DOTFILE_PATH" || return
 		git pull
 	fi
 }
 
 main() {
-	install_package git
-	install_package ansible
-	install_package gh
+	for PKG in "${SOFTWARE[@]}"; do
+		install_package "$PKG"
+	done
 	clone_repo
-	ansible-playbook "$HOME/git/jeircul/dots/.config/autoinstall/configure_fedora_qtile.yml" -K
+	ansible-playbook "$ANSIBLE_PLAYBOOK" -K
 }
 
 main
