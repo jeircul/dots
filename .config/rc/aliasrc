@@ -2,7 +2,7 @@
 alias v="nvim"
 
 # Git
-alias g="git" gst="g status" gl="g pull" gp="g push" gpv="g push -v" gf="g fetch" gbr="g branch" gco="g checkout" gd="g diff"
+alias g="git" gst="g st" gl="g l" gp="g p" gpv="g pv" gf="g f" gbr="g br" gco="g co" gd="g d"
 
 # Lazygit
 alias lg='lazygit'
