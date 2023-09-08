@@ -48,3 +48,4 @@ alias gpA="find . -name '.git' -type d | sed 's/\/.git//' |  xargs -P10 -I{} git
 alias tl="tldr --list | fzf --preview 'tldr {} --color always' | xargs tldr"
 
 colrem() { sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" ;}
+run_pwsh() { pwsh <(echo "$@") ;}
