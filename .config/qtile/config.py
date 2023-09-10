@@ -27,14 +27,13 @@ def load_colors(cache):
 
 
 colors = []
-cache = home + '/.cache/wal/colors'
-load_colors(cache)
+load_colors(f"{home}/.cache/wal/colors")
 
 
 layout_theme = {
     "border_focus": colors[4],
     "border_normal": colors[0],
-    "font": "FiraCode Nerd Font Mono Regular",
+    "font": "FiraCode Nerd Font Mono",
     "active_fg": colors[0],
     "active_bg": colors[5],
     "inactive_fg": colors[7],
@@ -118,19 +117,19 @@ for i in groups:
     )
 
 widget_defaults = dict(
-    font="FiraCode Nerd Font Mono Bold",
-    fontsize=13,
+    font="FiraCode Nerd Font Mono",
+    fontsize=14,
     padding=3,
     background=colors[0],
     foreground=colors[7],
-    active=colors[4],
+    active=colors[6],
     inactive=colors[7],
     highlight_method="block",
     block_highlight_text_color=colors[0],
     urgent_border=colors[1],
     urgent_text=colors[1],
     this_screen_border=colors[4],
-    this_current_screen_border=colors[3],
+    this_current_screen_border=colors[5],
     other_screen_border=colors[4],
     other_current_screen_border=colors[5],
 )
@@ -144,7 +143,7 @@ screens = [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
                 widget.WindowName(
-                    foreground=colors[4],
+                    foreground=colors[2],
                 ),
                 widget.CryptoTicker(
                     format='\uf6ab {amount:.0f} |'
