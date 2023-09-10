@@ -19,6 +19,9 @@ font:
     style: Italic
   size: 11.0
 
+import:
+ - ~/.config/alacritty/themes/tokyonight_night.yml
+
 shell:
   program: /bin/zsh
   args:
