@@ -146,23 +146,28 @@ screens = [
                     foreground=colors[2],
                 ),
                 widget.CryptoTicker(
-                    format='\uf6ab {amount:.0f} |'
+                    format='\uf6ab {amount:.0f} |',
+                    foreground=colors[2],
                 ),
                 widget.CryptoTicker(
                     crypto='ETH',
-                    format='\ue656 {amount:.0f} |'
+                    format='\ue656 {amount:.0f} |',
+                    foreground=colors[3],
                 ),
                 widget.CryptoTicker(
                     crypto='DOT',
-                    format='DOT {amount:.3f} |'
+                    format='DOT {amount:.3f} |',
+                    foreground=colors[4],
                 ),
                 widget.CryptoTicker(
                     crypto='ATOM',
-                    format='ATOM {amount:.3f} |'
+                    format='ATOM {amount:.3f} |',
+                    foreground=colors[5],
                 ),
                 widget.CryptoTicker(
                     crypto='MATIC',
-                    format='MATIC {amount:.3f} |'
+                    format='MATIC {amount:.3f} |',
+                    foreground=colors[7],
                 ),
                 widget.Systray(),
                 widget.KeyboardLayout(configured_keyboards=['us', 'no']),
