@@ -29,6 +29,7 @@ if [[ -f $HOME/.cache/wal/sequences ]]; then
 fi
 
 # DISTRO AGNOSTIC ALIAS
+alias cat="bat"
 alias p="ping" fp="fping" q="exit" mv="mv -v" cp="cp -v"
 alias h="history" sudo="sudo " cd..="cd .."
 rm="rm -i -v" rmf="rm -rf -I"
