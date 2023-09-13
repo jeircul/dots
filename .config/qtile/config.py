@@ -119,7 +119,7 @@ for i in groups:
 widget_defaults = dict(
     font="FiraCode Nerd Font Mono",
     fontsize=14,
-    padding=3,
+    padding=2,
     background=colors[0],
     foreground=colors[7],
     active=colors[6],
