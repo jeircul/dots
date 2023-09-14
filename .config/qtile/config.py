@@ -15,7 +15,7 @@ browser = "qutebrowser"
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.Popen([home + '/.config/qtile/autostart.sh'])
+    subprocess.Popen([home + '/scripts/autostart.sh'])
 
 
 def load_colors(cache):
