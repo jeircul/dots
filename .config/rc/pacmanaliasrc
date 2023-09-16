@@ -1,7 +1,0 @@
-if (( $+commands[pacman] )); then
-  alias mirror="sudo reflector --latest 200 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
-  alias y="paru"	yr="y -Rns" ystat="y -Ps" yc="y -c && paru -Scd"
-  alias ys="pacman -Sl | awk '{print \$2(\$4==\"\" ? \"\" : \" *\")}' | fzf --multi --preview 'pacman -Si {1}' | cut -d \" \" -f 1 | xargs -ro sudo pacman -S"
-  alias ysa="paru -Sl | awk '{print \$2(\$4==\"\" ? \"\" : \" *\")}' | fzf --multi --preview 'paru -Si {1}' | cut -d \" \" -f 1 | xargs -ro paru -S"
-  alias update="sudo pacman -Syu"
-fi

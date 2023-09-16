@@ -1,3 +1,0 @@
-if (( $+commands[dnf] )); then
-  alias update='sudo dnf update'
-fi
